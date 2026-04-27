@@ -9,6 +9,9 @@ export default defineConfig({
 	site: 'https://3arahim.github.io',
 	base: '/ai-automated-blog',
 	integrations: [mdx(), sitemap()],
+	image: {
+		domains: ['images.unsplash.com', 'source.unsplash.com'],
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),
