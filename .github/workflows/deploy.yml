@@ -17,11 +17,23 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          # Your Astro project is housed in this subfolder
-          path: ./astro_blog
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./astro_blog
+        run: npm install
+
+      - name: Build site
+        working-directory: ./astro_blog
+        run: npm run build
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./astro_blog/dist
 
   deploy:
     needs: build

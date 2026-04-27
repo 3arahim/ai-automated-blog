@@ -1,0 +1,52 @@
+{
+  "AI Writing & Content Marketing": {
+    "name": "Jasper AI",
+    "link": "https://jasper.ai/?ref=techcrunch_auto",
+    "benefit": "Generate high-quality marketing copy, blog posts, and emails in seconds."
+  },
+  "Image & Design Generation": {
+    "name": "Midjourney Pro",
+    "link": "https://midjourney.com/?ref=techcrunch_auto",
+    "benefit": "Create stunning, photorealistic images and digital art from simple text descriptions."
+  },
+  "Software Engineering & Coding": {
+    "name": "GitHub Copilot",
+    "link": "https://github.com/features/copilot/?ref=techcrunch_auto",
+    "benefit": "Write code faster and eliminate boilerplate with AI-powered autocomplete suggestions."
+  },
+  "Productivity & Notes": {
+    "name": "Notion AI",
+    "link": "https://notion.so/?ref=techcrunch_auto",
+    "benefit": "Organize your entire workflow and automatically summarize messy meeting notes."
+  },
+  "Video & Audio Editing": {
+    "name": "Descript",
+    "link": "https://descript.com/?ref=techcrunch_auto",
+    "benefit": "Edit podcasts and videos effortlessly by just editing the underlying text transcript."
+  },
+  "Voice Synthesis & Audio": {
+    "name": "ElevenLabs",
+    "link": "https://elevenlabs.io/?ref=techcrunch_auto",
+    "benefit": "Generate incredibly realistic human voices and dubbing for your videos and games."
+  },
+  "Wearable Tech Gadgets": {
+    "name": "Rabbit R1",
+    "link": "https://rabbit.tech/?ref=techcrunch_auto",
+    "benefit": "Utilize a pocket-sized AI assistant gadget that actually takes action on your behalf."
+  },
+  "Smart Communication": {
+    "name": "Slack AI",
+    "link": "https://slack.com/ai/?ref=techcrunch_auto",
+    "benefit": "Quickly catch up on missed channels and threads with automated daily summaries."
+  },
+  "Presentation & Pitch Decks": {
+    "name": "Tome",
+    "link": "https://tome.app/?ref=techcrunch_auto",
+    "benefit": "Generate full, beautifully formatted visual presentations from just a single text prompt."
+  },
+  "General Assistant": {
+    "name": "ChatGPT Plus",
+    "link": "https://chat.openai.com/?ref=techcrunch_auto",
+    "benefit": "Access the smartest frontier models for deep analysis, creative writing, and coding."
+  }
+}
