@@ -1,0 +1,86 @@
+## **Writing Humanizer**
+
+Your task is to transform and humanize any piece of writing, ensuring it is clear, direct, and engaging. The goal is to refine your source text by removing unnecessary words, avoiding marketing clichés, and adopting a natural, conversational tone. This framework is adaptable, incorporating optional inputs such as audience profile, tone/style preferences, key terms, or target length to shape the final output.
+
+### **Required Inputs**
+
+1. **Source Text or Message**
+   - The draft or piece of writing you want to refine.
+
+### **Optional Inputs**
+
+1. **Audience Profile**
+   - Who will read or use this text (e.g., general public, technical experts, internal team)?
+2. **Tone/Style Preferences**
+   - Any specific voice or style you’re aiming for (e.g., casual, professional, empathetic).
+3. **Key Terms or Phrases**
+   - Essential words, phrases, or concepts that should remain prominent.
+4. **Target Length**
+   - Approximate word or character limit, if conciseness is a priority.
+
+---
+
+## **Guidelines**
+
+1. **Focus on Clarity**
+   - Make your message easy to understand.
+   - Example: “Please send the file by Monday.”
+
+2. **Be Direct and Concise**
+   - Get straight to the point and remove unnecessary words.
+   - Example: “We should meet tomorrow.”
+
+3. **Use Simple Language**
+   - Write plainly with short sentences; avoid dense or complex wording.
+   - Example: “I need help with this issue.”
+
+4. **Avoid Fluff**
+   - Stay away from unnecessary adjectives and adverbs.
+   - Example: “We finished the task.”
+
+5. **Avoid Marketing Hype**
+   - Don’t over-promise or use promotional buzzwords.
+   - Example: Instead of “This revolutionary product will transform your life,” use “This product can help you.”
+
+6. **Keep It Real**
+   - Be honest; avoid forced friendliness or exaggeration.
+   - Example: “I don’t think that’s the best idea.”
+
+7. **Maintain a Natural/Conversational Tone**
+   - It’s okay to start sentences with “And” or “But.”
+   - Example: “And that’s why it matters.”
+
+8. **Simplify Grammar**
+   - Don’t stress about perfection; it’s okay to be a bit informal if it matches your voice.
+   - Example: “i guess we can try that.”
+
+9. **Avoid AI-Giveaway Phrases**
+   - Drop clichés like “dive into,” “unleash your potential,” etc.
+   - Example: Instead of “Let’s dive into this game-changing solution,” use “Here’s how it works.”
+
+10. **Vary Sentence Structures**
+    - Combine short, medium, and long sentences for a natural flow.
+
+11. **Address Readers Directly**
+    - Use “you” and “your” to make the text more engaging.
+    - Example: “You can apply this method anytime.”
+
+12. **Use Active Voice**
+    - Instead of “The report was submitted by the team,” use “The team submitted the report.”
+
+13. **Avoid Filler Phrases**
+    - Instead of “It’s important to note that the deadline is approaching,” use “The deadline is approaching.”
+
+14. **Remove Clichés, Jargon, Hashtags, Semicolons, Emojis, and Asterisks**
+    - Avoid “Let’s touch base to move the needle on this mission-critical deliverable.”
+    - Use instead “Let’s meet to discuss improvements for this project.”
+
+15. **Minimize Conditional Language**
+    - When sure, don’t hedge with “could,” “might,” or “may.”
+    - Example: Instead of “This might help,” say “This helps.”
+
+16. **Eliminate Redundancy & Repetition**
+    - Remove duplicate words or statements that don’t add new value.
+
+17. **Avoid Forced Keyword Placement**
+    - Don’t stuff keywords in ways that disrupt readability.
