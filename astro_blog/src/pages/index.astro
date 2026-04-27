@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
+import { Image } from 'astro:assets';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -38,9 +39,8 @@ const posts = (await getCollection('blog')).sort(
 				font-weight: 700;
 				margin-bottom: 2rem;
 				text-align: center;
-				background: -webkit-linear-gradient(45deg, #3a8ded, #00d2ff);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
+				color: #ffffff;
+				text-shadow: 0 0 10px rgba(255,255,255,0.3);
 			}
 			ul {
 				display: grid;
@@ -52,6 +52,7 @@ const posts = (await getCollection('blog')).sort(
 			li {
 				background: var(--card-bg);
 				border-radius: 12px;
+				border: 1px solid #333333;
 				overflow: hidden;
 				transition: transform 0.2s ease, box-shadow 0.2s ease;
 			}
@@ -94,7 +95,11 @@ const posts = (await getCollection('blog')).sort(
 						<li>
 							<a href={`/ai-automated-blog/blog/${post.slug}/`}>
 								<div class="post-img">
-									<img src={post.data.heroImage} alt="" />
+									{
+										typeof post.data.heroImage === 'string' && post.data.heroImage.startsWith('http')
+										? <img src={post.data.heroImage} alt="" />
+										: <Image width={1020} height={510} src={post.data.heroImage} alt="" />
+									}
 								</div>
 								<div class="post-content">
 									<p class="date">
