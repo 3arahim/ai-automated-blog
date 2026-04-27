@@ -95,11 +95,7 @@ const posts = (await getCollection('blog')).sort(
 						<li>
 							<a href={`/ai-automated-blog/blog/${post.slug}/`}>
 								<div class="post-img">
-									{
-										typeof post.data.heroImage === 'string' && post.data.heroImage.startsWith('http')
-										? <img src={post.data.heroImage} alt="" />
-										: <Image width={1020} height={510} src={post.data.heroImage} alt="" />
-									}
+									<img src={typeof post.data.heroImage === 'string' ? post.data.heroImage : post.data.heroImage?.src} alt="" />
 								</div>
 								<div class="post-content">
 									<p class="date">
