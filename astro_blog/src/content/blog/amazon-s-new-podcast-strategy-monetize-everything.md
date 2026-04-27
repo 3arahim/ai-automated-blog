@@ -2,7 +2,7 @@
 title: "Amazon’s new podcast strategy: Monetize everything"
 description: "Read about Amazon’s new podcast strategy: Monetize everything"
 pubDate: "Apr 26 2026"
-heroImage: "/blog-placeholder-about.jpg"
+heroImage: "../../assets/blog-placeholder-about.jpg"
 ---
 
 Amazon's new podcast strategy: Monetize everything

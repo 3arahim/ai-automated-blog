@@ -161,7 +161,7 @@ def create_markdown_file(item, raw_content):
 title: "{safe_title}"
 description: "{safe_desc}"
 pubDate: "{pub_date}"
-heroImage: "/blog-placeholder-about.jpg"
+heroImage: "../../assets/blog-placeholder-about.jpg"
 ---
 """
     # Append Internal links

@@ -2,7 +2,7 @@
 title: "The Stanford freshmen who want to rule the world . . . will probably read this book and try even harder"
 description: "Read about The Stanford freshmen who want to rule the world . . . will probably read this book and try even harder"
 pubDate: "Apr 26 2026"
-heroImage: "/blog-placeholder-about.jpg"
+heroImage: "../../assets/blog-placeholder-about.jpg"
 ---
 
 The Stanford freshmen who want to rule the world . . . will probably read this book and try even harder

@@ -2,7 +2,7 @@
 title: "What Tim Cook built"
 description: "Read about What Tim Cook built"
 pubDate: "Apr 26 2026"
-heroImage: "/blog-placeholder-about.jpg"
+heroImage: "../../assets/blog-placeholder-about.jpg"
 ---
 
 What Tim Cook Built
