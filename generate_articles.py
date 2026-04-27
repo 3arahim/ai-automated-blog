@@ -47,14 +47,12 @@ Based on this topic, strictly select ONE category from the following list that m
 
 Only output the EXACT category name. No other text. If no specific category matches, output 'General Assistant'.
 """
-    # Use a simpler/shorter max-token generation for classification if possible, but standard chat is fine
     response = client.chat(model=OLLAMA_MODEL, messages=[
         {'role': 'user', 'content': classification_prompt}
     ])
     
     result = response['message']['content'].strip('\'" \n')
     
-    # Check if the LLM hallucinated, if so fallback safely
     for cat in products:
         if cat.lower() in result.lower():
             print(f"  -> Categorized as: {cat}")
@@ -84,7 +82,7 @@ def get_random_internal_links(exclude_slug, num_links=2):
                     title = match.group(1)
         except Exception:
             pass
-        links.append(f"- [{title}](/blog/{slug}/)")
+        links.append(f"- [{title}](/ai-automated-blog/blog/{slug}/)")
         
     if links:
         links_text = "\n".join(links)
@@ -95,7 +93,6 @@ def generate_article(item, system_prompt, client):
     title = item.get('title', 'No Title')
     description = item.get('description', '')
     
-    # Remove HTML tags from description if present
     description = re.sub(r'<[^>]+>', '', description)
     
     print("Determining best affiliate product...")
@@ -108,9 +105,10 @@ Summary: {description}
 
 Please follow these strict formatting rules:
 1. Start your response with exactly this line: "META_DESCRIPTION: [Write a 1-sentence SEO meta description here]"
-2. Provide the rest of the article body underneath it. Do not include introductory conversation.
-3. Use Markdown H2 (##) and H3 (###) tags properly to structure the article and make it easy for search engines to read. Do NOT use an H1 (#) tag.
-4. Product Injection: We want to recommend the product '{product['name']}'. Ensure you embed its exact affiliate link: {product['link']}. 
+2. On the next line, provide exactly this: "KEYWORD: [A single keyword representing the image, e.g. laptop, AI, network]"
+3. Provide the rest of the article body underneath it. Do not include introductory conversation.
+4. Use Markdown H2 (##) and H3 (###) tags properly to structure the article and make it easy for search engines to read. Do NOT use an H1 (#) tag.
+5. Product Injection: We want to recommend the product '{product['name']}'. Ensure you embed its exact affiliate link: {product['link']}. 
 You must weave its primary benefit ("{product['benefit']}") safely and naturally into the narrative of the main article content without sounding like an abrupt advertisement. Make it flow logically!
 """
     print("Generating full article from model...")
@@ -124,47 +122,47 @@ You must weave its primary benefit ("{product['benefit']}") safely and naturally
 def create_markdown_file(item, raw_content):
     title = item.get('title', 'Unknown Title')
     
-    # Simple slug generation
     slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
     if not slug:
         slug = f"article-{int(time.time())}"
         
     filename = os.path.join(ASTRO_BLOG_DIR, f"{slug}.md")
     
-    # Optional: check if file already exists to avoid duplicates
     if os.path.exists(filename):
         print(f"Skipping {slug}, already exists.")
         return False
 
-    # Extract Meta Description
     meta_desc_match = re.search(r'^META_DESCRIPTION:\s*(.*)', raw_content, flags=re.MULTILINE | re.IGNORECASE)
     if meta_desc_match:
         meta_description = meta_desc_match.group(1).strip()
-        # Remove the meta description line from content
-        content = re.sub(r'^META_DESCRIPTION:\s*.*\n*', '', raw_content, count=1, flags=re.MULTILINE | re.IGNORECASE).strip()
+        raw_content = re.sub(r'^META_DESCRIPTION:\s*.*\n*', '', raw_content, count=1, flags=re.MULTILINE | re.IGNORECASE).strip()
     else:
-        # Fallback if AI fails to format properly
         safe_title = title.replace('"', '\\"')
         meta_description = f"Read about {safe_title}"
-        content = raw_content
 
-    # Clean up any residual meta description prefixes it might have left
-    content = re.sub(r'^\**META_DESCRIPTION\**:\s*', '', content, flags=re.MULTILINE | re.IGNORECASE).strip()
+    keyword_match = re.search(r'^KEYWORD:\s*([^\n]+)', raw_content, flags=re.MULTILINE | re.IGNORECASE)
+    if keyword_match:
+        keyword = keyword_match.group(1).strip()
+        raw_content = re.sub(r'^KEYWORD:\s*.*\n*', '', raw_content, count=1, flags=re.MULTILINE | re.IGNORECASE).strip()
+    else:
+        keyword = "tech"
 
-    # Escape quotes in meta variables
+    content = re.sub(r'^\**META_DESCRIPTION\**:\s*', '', raw_content, flags=re.MULTILINE | re.IGNORECASE).strip()
+    content = re.sub(r'^\**KEYWORD\**:\s*', '', content, flags=re.MULTILINE | re.IGNORECASE).strip()
+    
     safe_title = title.replace('"', '\\"')
     safe_desc = meta_description.replace('"', '\\"')
     
     pub_date = datetime.now().strftime("%b %d %Y")
+    hero_image = f"https://source.unsplash.com/featured/?tech,{keyword}"
     
     frontmatter = f"""---
 title: "{safe_title}"
 description: "{safe_desc}"
 pubDate: "{pub_date}"
-heroImage: "../../assets/blog-placeholder-about.jpg"
+heroImage: "{hero_image}"
 ---
 """
-    # Append Internal links
     internal_links_section = get_random_internal_links(slug, num_links=2)
     content += internal_links_section
         
